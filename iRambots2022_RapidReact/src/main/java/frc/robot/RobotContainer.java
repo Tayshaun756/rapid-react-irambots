@@ -10,7 +10,8 @@ package frc.robot;
 //import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 //import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
+//import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.shooterManual;
 //import frc.robot.commands.moveShooter;
 //import frc.robot.commands.cellOutput;
@@ -52,30 +53,30 @@ private void configureButtonBindings() {
 //driver controller
 
 //arm limited
-new JoystickButton(m_driver, 11).whileHeld(new armUpLimited());
-new JoystickButton(m_driver, 12).whileHeld(new armDownLimited());
+new JoystickButton(m_driver, 11).whileTrue(new armUpLimited());
+new JoystickButton(m_driver, 12).whileTrue(new armDownLimited());
 
 //arm manual
-new JoystickButton(m_driver, 9).whileHeld(new armManual());
-new JoystickButton(m_driver, 10).whileHeld(new armRetract());
+new JoystickButton(m_driver, 9).whileTrue(new armManual());
+new JoystickButton(m_driver, 10).whileTrue(new armRetract());
 
 //shooter
-new JoystickButton(m_driver, 3).whileHeld(new shooterManual());
-new JoystickButton(m_driver, 5).whileHeld(new fullShooter());
+new JoystickButton(m_driver, 3).whileTrue(new shooterManual());
+new JoystickButton(m_driver, 5).whileTrue(new fullShooter());
 
 //reverse shooter
-new JoystickButton(m_driver, 4).whileHeld(new putDown());
-new JoystickButton(m_driver, 6).whileHeld(new putDown());
+new JoystickButton(m_driver, 4).whileTrue(new putDown());
+new JoystickButton(m_driver, 6).whileTrue(new putDown());
 
 //hanger controller
 
 //small hooks
-new JoystickButton(m_arcade, 3).whileHeld(new hookEast());
-new JoystickButton(m_arcade, 4).whileHeld(new hookWest());
+new JoystickButton(m_arcade, 3).whileTrue(new hookEast());
+new JoystickButton(m_arcade, 4).whileTrue(new hookWest());
 
 //big hook
-new JoystickButton(m_arcade, 7).whileHeld(new armWest());
-new JoystickButton(m_arcade, 8).whileHeld(new armEast());
+new JoystickButton(m_arcade, 7).whileTrue(new armWest());
+new JoystickButton(m_arcade, 8).whileTrue(new armEast());
 }
 
 public Joystick getjoy1() {
@@ -116,7 +117,7 @@ public class OI {
 
   // Run the command while the button is being held down and interrupt it once
   // the button is released.
-  // button.whileHeld(new ExampleCommand());
+  // button.WhileTrue(new ExampleCommand());
 
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
@@ -193,44 +194,44 @@ public OI() {
   
 
 
-  btn1a.whileHeld(new armUpLimited());
-  btn2a.whileHeld(new armDownLimited());
-  btn3a.whileHeld(new hookEast());
-  btn4a.whileHeld(new hookWest());
-  btn5a.whileHeld(new shooterManual());
-  btn6a.whileHeld(new fullShooter());
-  btn7a.whileHeld(new armWest());
-  btn8a.whileHeld(new armEast());
-  btn9a.whileHeld(new resetArmEncoder());
-  btn10a.whileHeld(new putDown());
-  btn11a.whileHeld(new armUpLimited());
-  btn12a.whileHeld(new armDownLimited());
+  btn1a.WhileTrue(new armUpLimited());
+  btn2a.WhileTrue(new armDownLimited());
+  btn3a.WhileTrue(new hookEast());
+  btn4a.WhileTrue(new hookWest());
+  btn5a.WhileTrue(new shooterManual());
+  btn6a.WhileTrue(new fullShooter());
+  btn7a.WhileTrue(new armWest());
+  btn8a.WhileTrue(new armEast());
+  btn9a.WhileTrue(new resetArmEncoder());
+  btn10a.WhileTrue(new putDown());
+  btn11a.WhileTrue(new armUpLimited());
+  btn12a.WhileTrue(new armDownLimited());
 
 //input port 2 button mapping
 
-  btn1b.whileHeld(new cargoVert());
-  //btn1b.whileHeld(new intakeCell());
-  btn2b.whileHeld(new armUpLimited());
-  btn3b.whileHeld(new shooterManual());
-  btn4b.whileHeld(new putDown());
-  btn5b.whileHeld(new fullShooter());
-  btn6b.whileHeld(new putDown());
-  btn7b.whileHeld(new hookEast());
-  btn8b.whileHeld(new hookWest());
-  btn9b.whileHeld(new armManual());
-  btn10b.whileHeld(new armRetract());
-  btn11b.whileHeld(new armUpLimited());
-  btn12b.whileHeld(new armDownLimited());
+  btn1b.WhileTrue(new cargoVert());
+  //btn1b.WhileTrue(new intakeCell());
+  btn2b.WhileTrue(new armUpLimited());
+  btn3b.WhileTrue(new shooterManual());
+  btn4b.WhileTrue(new putDown());
+  btn5b.WhileTrue(new fullShooter());
+  btn6b.WhileTrue(new putDown());
+  btn7b.WhileTrue(new hookEast());
+  btn8b.WhileTrue(new hookWest());
+  btn9b.WhileTrue(new armManual());
+  btn10b.WhileTrue(new armRetract());
+  btn11b.WhileTrue(new armUpLimited());
+  btn12b.WhileTrue(new armDownLimited());
 
-  btn1c.whileHeld(new cargoVert());
-  //btn1c.whileHeld(new intakeCell());
-  btn2c.whileHeld(new armUpLimited());
-  btn3c.whileHeld(new armWest());
-  btn4c.whileHeld(new hookWest());
-  btn5c.whileHeld(new hookEast());
-  btn6c.whileHeld(new shooterManual());
-  btn7c.whileHeld(new armDownLimited());
-  btn8c.whileHeld(new armEast());
+  btn1c.WhileTrue(new cargoVert());
+  //btn1c.WhileTrue(new intakeCell());
+  btn2c.WhileTrue(new armUpLimited());
+  btn3c.WhileTrue(new armWest());
+  btn4c.WhileTrue(new hookWest());
+  btn5c.WhileTrue(new hookEast());
+  btn6c.WhileTrue(new shooterManual());
+  btn7c.WhileTrue(new armDownLimited());
+  btn8c.WhileTrue(new armEast());
 
 }
 
