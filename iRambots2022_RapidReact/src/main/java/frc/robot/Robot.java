@@ -12,9 +12,11 @@ import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 //import edu.wpi.first.wpilibj.command.CommandGroup;
-import edu.wpi.first.wpilibj.command.Scheduler;
+//import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj2.command.ScheduleCommand;
 //import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -86,13 +88,13 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
   public static putDown putDown;
   public static RobotContainer RobotContainer;
   public static arm arm;
-  public static Command m_autonomousCommand;
+  public static CommandBase m_autonomousCommand;
   public static DriveToPort DriveToPort;
   public static maxShooter maxShooter;
   //public static TurnAround turnAround;
   //public static auto180 auto180;
   public static Object wheelShooter;
-  SendableChooser<Command> m_chooser = new SendableChooser<>();
+  SendableChooser<CommandBase> m_chooser = new SendableChooser<>();
   public static rollerSpeed rollerSpeed = new rollerSpeed();
   
    /**
@@ -283,7 +285,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
   @Override
   public void disabledPeriodic() {
-    Scheduler.getInstance().run();
+    CommandScheduler.getInstance().run();
   }
 
   /**
@@ -313,11 +315,12 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
     // schedule the autonomous command (example)
     // Scheduler.getInstance().add(drive);
-    Scheduler.getInstance().add(new driveManual() {
+    //CommandScheduler.getInstance().add(new driveManual() {
+      CommandScheduler.getInstance().schedule(new driveManual() {
       //double timeElapsed;
-
+    
       @Override
-      protected void initialize() {
+      public void initialize() {
          driveTrain.tankDrive(-.6, .6);
         Constants.shooterMotor.set(-0.7);
         Constants.cargoMotor.set(0.7);
@@ -327,7 +330,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 
       @Override
-      protected void execute() {
+      public void execute() {
         double startTime = Timer.getMatchTime();
         double time = Timer.getFPGATimestamp();
         if (startTime - time == 13) {
@@ -352,7 +355,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
         
 
         @Override
-        protected boolean isFinished() {
+        public boolean isFinished() {
 
           double startTime = Timer.getMatchTime();
           if (startTime == 9) {
@@ -373,7 +376,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
    */
   @Override
   public void autonomousPeriodic() {
-    Scheduler.getInstance().run();
+    CommandScheduler.getInstance().run();
     
   }
 
@@ -393,7 +396,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
    */
   @Override
   public void teleopPeriodic() {
-    Scheduler.getInstance().run();
+    CommandScheduler.getInstance().run();
 
     // read PID coefficients from SmartDashboard
     double p = SmartDashboard.getNumber("P Gain", 0);
