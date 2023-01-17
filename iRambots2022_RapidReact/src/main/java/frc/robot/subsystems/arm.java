@@ -8,20 +8,14 @@
 package frc.robot.subsystems;
 
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import com.revrobotics.CANSparkMax;
 
-public class arm extends Subsystem {
-
+public class arm extends SubsystemBase {
+public arm() {}
     private final CANSparkMax m_motor = Constants.armMotor;
     //@SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-    @Override
-    protected void initDefaultCommand() {
-    
-}
-
-
     //armVert makes the motors run to lift up the arm 
     public void armVert() {
         m_motor.set(-1.0);
@@ -59,4 +53,3 @@ public class arm extends Subsystem {
           }
     }// -29398.000000
 }
-
