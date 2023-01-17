@@ -4,41 +4,41 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class hookEast extends Command {
+public class hookEast extends CommandBase {
   public hookEast() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-requires(Robot.hookDirectional);   
+    // Use addRequirements() here to declare subsystem dependencies
+    // eg. addRequirements(chassis);
+addRequirements(Robot.hookDirectional);   
 }
   
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() {
+  public void execute() {
     Robot.hookDirectional.hookRight();
 
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
-  protected boolean isFinished() {
+  public boolean isFinished() {
     return false;
   }
 
   // Called once after isFinished returns true
   @Override
-  protected void end() {
+  public void end(boolean interrupted) {
     Robot.hookDirectional.stop();
 
   }
 
-  // Called when another command which requires one or more of the same
+  // Called when another command which addRequirements one or more of the same
   // subsystems is scheduled to run
-  @Override
+/*   @Override
   protected void interrupted() {
     end();
-  }
+  } */
 }
