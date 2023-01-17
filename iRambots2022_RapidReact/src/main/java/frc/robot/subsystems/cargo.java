@@ -9,18 +9,17 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
  
 
-public  class cargo extends Subsystem {
+public  class cargo extends SubsystemBase {
 
     private final WPI_VictorSPX cargoMotorVictorSPX = Constants.cargoMotor;
     private final WPI_VictorSPX shooterMotorVictorSPX = Constants.shooterMotor;
 
     //@SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-    @Override
-    protected void initDefaultCommand() {
+   public cargo() {
         
     }
     public void cargoUp() {
