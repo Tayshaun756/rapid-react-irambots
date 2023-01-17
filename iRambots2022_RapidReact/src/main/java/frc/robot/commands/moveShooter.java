@@ -7,35 +7,35 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 //shooter  used to be jack
-public class moveShooter extends Command {
+public class moveShooter extends CommandBase {
     //@SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
     //private boolean move;
 
     public moveShooter() {
-        requires(Robot.shooter);
+        addRequirements(Robot.shooter);
     }
 
     @Override
-    protected void execute (){
+    public void execute (){
         Robot.shooter.shooterVert();
     }
     @Override
-    protected boolean isFinished() {
+    public boolean isFinished() {
         return false;
     }
 
     @Override
-    protected void end() {
+    public void end(boolean interrupted) {
         Robot.shooter.stop();
     }
 
-    @Override
-    protected void interrupted() {
+      /* @Override
+     protected void interrupted() {
         end();
-    }
+    } */
 
 }
 
