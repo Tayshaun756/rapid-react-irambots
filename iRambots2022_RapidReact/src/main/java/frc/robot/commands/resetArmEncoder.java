@@ -7,30 +7,31 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class resetArmEncoder extends Command {
+public class resetArmEncoder extends CommandBase {
     //@SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
 
     public resetArmEncoder() {
-        requires(Robot.arm);
+        addRequirements(Robot.arm);
     }
 
     @Override
-    protected void execute (){
+    public void execute (){
         Robot.arm.resetEncoder();
     }
     @Override
-    protected boolean isFinished() {
+    public boolean isFinished() {
         return false;
     }
 
     @Override
-    protected void end() {}
+    public void end(boolean interrupted) {}
 
-    @Override
+   /*  @Override
     protected void interrupted() {
         end();
-    }
+    } */
 }
+
