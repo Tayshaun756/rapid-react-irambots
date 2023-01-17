@@ -1,26 +1,26 @@
 package frc.robot.commands.autonomous;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 //import frc.robot.RobotMap;
 //import frc.robot.subsystems.driveTrain;
 //import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 
-public class DriveToPort extends Command {
+public class DriveToPort extends CommandBase {
 
     public DriveToPort () {
-        requires(Robot.driveTrain);
-        setTimeout(5.0);
+        addRequirements(Robot.driveTrain);
+        withTimeout(5.0);
     }
 
     @Override
-    protected void initialize() {
+    public void initialize() {
 
     }
 
     @Override
-    protected void execute() {
+    public void execute() {
         double startTime = Timer.getMatchTime();
         // change joystick mapping for drivetrain here
         if ( startTime < 6.0) { 
@@ -33,10 +33,9 @@ public class DriveToPort extends Command {
     }
 
     @Override
-    protected boolean isFinished() {
+    public boolean isFinished() {
         return false;
     }
 
 }
-
 
