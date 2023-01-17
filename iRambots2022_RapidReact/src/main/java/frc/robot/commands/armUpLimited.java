@@ -6,15 +6,15 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
 
-public class armUpLimited extends Command {
+public class armUpLimited extends CommandBase {
 
   
  public armUpLimited() { 
-   requires(Robot.arm);
+   addRequirements(Robot.arm);
   }
 
   // Called just before this Command runs the first time
@@ -22,31 +22,31 @@ public class armUpLimited extends Command {
  // protected void initialize() {
   
 
-  //private void requires(Robot.armDirectional) {
+  //private void addRequirements(Robot.armDirectional) {
 //}
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() {
+  public void execute() {
     Robot.arm.moveArm(-1);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
-  protected boolean isFinished() {
+  public boolean isFinished() {
     return false;
   }
 
   // Called once after isFinished returns true
   @Override
-  protected void end() {
+  public void end(boolean interrupted) {
     Robot.arm.stop();
   }
 
-  // Called when another command which requires one or more of the same
+  // Called when another command which addRequirements one or more of the same
   // subsystems is scheduled to run
-  @Override
+  /* @Override
   protected void interrupted() {
     end();
-  }
+  } */
 }
