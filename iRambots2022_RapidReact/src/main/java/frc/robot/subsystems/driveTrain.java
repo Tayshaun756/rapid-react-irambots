@@ -10,14 +10,14 @@ package frc.robot.subsystems;
 //import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 //import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.Constants;
 import frc.robot.commands.driveManual;
 
 //@SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
 
-public class driveTrain extends Subsystem {
+public class driveTrain extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
@@ -38,8 +38,7 @@ public class driveTrain extends Subsystem {
   private final DifferentialDrive differentialDrive = Constants.driveTrainDifferentialDrive;
 public Object driveArcade;
 
-  @Override
-  public void initDefaultCommand() {
+  public driveTrain() {
     // Set the default command for a subsystem here.
     setDefaultCommand(new driveManual());
   }
