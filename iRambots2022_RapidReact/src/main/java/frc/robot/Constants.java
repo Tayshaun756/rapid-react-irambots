@@ -12,7 +12,6 @@ package frc.robot;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.kauailabs.navx.frc.*;
 import com.revrobotics.CANSparkMax;
-
 import edu.wpi.first.wpilibj.SerialPort;
 //import edu.wpi.first.wpilibj.motorcontrol.Spark;
 //import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
