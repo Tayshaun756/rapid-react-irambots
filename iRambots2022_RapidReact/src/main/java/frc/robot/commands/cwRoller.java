@@ -7,42 +7,42 @@
 //im in pain
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class cwRoller extends Command {
+public class cwRoller extends CommandBase {
   public cwRoller() {
-    // Use requires() here to declare subsystem dependencies
-    requires(Robot.rollerSpeed);
+    // Use addRequirements() here to declare subsystem dependencies
+    addRequirements(Robot.rollerSpeed);
   }
 
   // Called just before this Command runs the first time
   @Override
-  protected void initialize() {
+  public void initialize() {
     Robot.rollerSpeed.rollermotor.set(1);
     //if wrong direction, just flip numbers of ccwRoller and cwRoller
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() {
+  public void execute() {
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
-  protected boolean isFinished() {
+  public boolean isFinished() {
     return true;
   }
 
   // Called once after isFinished returns true
   @Override
-  protected void end() {
+  public void end(boolean interrupted) {
     Robot.rollerSpeed.rollermotor.set(0);
   }
 
-  // Called when another command which requires one or more of the same
+  // Called when another command which addRequirements one or more of the same
   // subsystems is scheduled to run
-  @Override
+ /*  @Override
   protected void interrupted() {
-  }
+  } */
 }
