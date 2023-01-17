@@ -9,19 +9,19 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX; 
 //import edu.wpi.first.wpililbj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 //import frc.robot.commands.cwRoller;
 //import frc.robot.commands.ccwRoller;
 
-public class rollerSpeed extends Subsystem {
+public class rollerSpeed extends SubsystemBase {
   public WPI_VictorSPX spinmotorVictorSPX = Constants.spinMotor;
   public WPI_VictorSPX rollernmotorVictorSPX = Constants.rollerMotor;
   public WPI_VictorSPX spinmotor = new WPI_VictorSPX(6);
   public WPI_VictorSPX rollermotor = new WPI_VictorSPX(6);
 
-@Override
-public void initDefaultCommand() {
+
+public rollerSpeed() {
 
 }
 }
