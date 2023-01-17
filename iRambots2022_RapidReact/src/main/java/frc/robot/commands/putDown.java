@@ -7,39 +7,39 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class putDown extends Command {
+public class putDown extends CommandBase {
     //@SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
     public putDown() {
-      //Use requires() here to declare subsystem dependencies
-      // eg. requires(chassis);
-      requires(Robot.cargo);
+      //Use addRequirements() here to declare subsystem dependencies
+      // eg. addRequirements(chassis);
+      addRequirements(Robot.cargo);
     }
     
     @Override
-    protected void initialize(){
+    public void initialize(){
     }
 
     @Override
-    protected void execute() {
+    public void execute() {
         Robot.cargo.putDown();
     }
     @Override
-    protected boolean isFinished() {
+    public boolean isFinished() {
         return false;
     }
 
     @Override
-    protected void end() {
+    public void end(boolean interrupted) {
         Robot.cargo.stop();
     }
 
-    @Override
+    /* @Override
     protected void interrupted() {
-        end();
-    }
+        end(); 
+    } */
 
     }
     
