@@ -8,16 +8,16 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 
-public class cellRoller extends Subsystem {
+public class cellRoller extends SubsystemBase {
 
   private final WPI_VictorSPX rollerMotorVictorSPX = Constants.rollerMotor;
     //@SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-    @Override
-    protected void initDefaultCommand() {
+  
+    public cellRoller() {
         
     }
 //collectCell makes the motors run to collect the energy Cells.
