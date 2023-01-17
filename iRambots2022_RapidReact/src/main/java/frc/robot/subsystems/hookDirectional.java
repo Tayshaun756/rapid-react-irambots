@@ -4,15 +4,14 @@
 
 package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class hookDirectional extends Subsystem {
+public class hookDirectional extends SubsystemBase {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 private final WPI_VictorSPX hookMotorVictorSPX = Constants.hookMotor;
-  @Override
-  public void initDefaultCommand() {
+  public hookDirectional() {
   }
   public void hookRight() {
     hookMotorVictorSPX.set(-0.6);
